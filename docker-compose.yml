@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: quantportfolio
+      POSTGRES_USER: quantportfolio
+      POSTGRES_PASSWORD: quantportfolio
+    ports:
+      - "5432:5432"
